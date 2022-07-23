@@ -20,4 +20,16 @@ public class JsonToObjectTests
         flight.First().FlightId.Should().Be(1);
         flight.First().OriginCity.Should().Be("MAN");
     }
+
+    [Test]
+    public void LoadDataFromJson_Should_Successfully_Parse_JsonData_To_Hotel_Object()
+    {
+        var hotel = LoadDataFromJson.LoadHotels();
+        
+        Assert.That(hotel, Is.Not.Null);
+        Assert.IsInstanceOf<Hotels>(hotel.First());
+        hotel.Count.Should().Be(13);
+        hotel.First().HotelId.Should().Be(1);
+        hotel.First().HotelName.Should().Be("Iberostar Grand Portals Nous");
+    }
 }
