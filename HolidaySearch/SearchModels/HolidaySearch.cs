@@ -1,4 +1,7 @@
-﻿namespace HolidaySearch.SearchModels;
+﻿using HolidaySearch.LoadDataModels;
+using HolidaySearch.Models;
+
+namespace HolidaySearch.SearchModels;
 
 public class HolidaySearch
 {
@@ -13,5 +16,15 @@ public class HolidaySearch
         TravelingTo = travelingTo;
         DepartureDate = departureDate;
         Duration = duration;
+    }
+
+    public void Result()
+    {
+        var matchFlights = LoadDataFromJson.LoadFlights();
+        var matchHotels = LoadDataFromJson.LoadHotels();
+        
+        Console.WriteLine(matchFlights.First().FlightId);
+        Console.WriteLine(matchHotels.First().HotelId);
+        
     }
 }

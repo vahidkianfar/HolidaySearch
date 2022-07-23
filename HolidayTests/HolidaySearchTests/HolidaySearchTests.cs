@@ -18,8 +18,8 @@ public class HolidaySearchTests
         departureDate: "2023/07/01",
         duration: 7
         );
-        
-        
+
+        holidaySearch.Result();
 
     }
 }
