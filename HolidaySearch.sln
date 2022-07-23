@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidaySearch", "HolidaySearch\HolidaySearch.csproj", "{D21BDE66-7C46-49AE-9F34-0A227316DD84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayTests", "HolidayTests\HolidayTests.csproj", "{999B737F-3752-4635-8DC8-6AC2955C02E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D21BDE66-7C46-49AE-9F34-0A227316DD84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21BDE66-7C46-49AE-9F34-0A227316DD84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21BDE66-7C46-49AE-9F34-0A227316DD84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21BDE66-7C46-49AE-9F34-0A227316DD84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999B737F-3752-4635-8DC8-6AC2955C02E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999B737F-3752-4635-8DC8-6AC2955C02E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999B737F-3752-4635-8DC8-6AC2955C02E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999B737F-3752-4635-8DC8-6AC2955C02E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
