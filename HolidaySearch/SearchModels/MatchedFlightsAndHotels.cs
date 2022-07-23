@@ -61,7 +61,7 @@ public class MatchedFlightsAndHotels
                     flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
         }
 
-        return match.Count==0 ? null : match;
+        return match;
     }
 
 

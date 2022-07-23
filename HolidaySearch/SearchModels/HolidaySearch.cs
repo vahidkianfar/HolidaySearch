@@ -32,23 +32,50 @@ public class HolidaySearch
     
     private List<Flights> ReturnFlightPriceByAscendingOrder()
     {
-        var matchFlights = MatchedFlightsAndHotels.FindMatchFlights(DepartingFrom, TravelingTo, DepartureDate);
-        matchFlights.Sort((flightA, flightB) => flightA.FlightPrice.CompareTo(flightB.FlightPrice));
-        return matchFlights;
+        try
+        {
+            var matchFlights = MatchedFlightsAndHotels.FindMatchFlights(DepartingFrom, TravelingTo, DepartureDate);
+            matchFlights.Sort((flightA, flightB) => flightA.FlightPrice.CompareTo(flightB.FlightPrice));
+            return matchFlights;
+        }
+        catch (ArgumentNullException)
+        {
+            Console.WriteLine("There is no flights available");
+            throw;
+        }
+        
     }
 
     private List<Hotels> ReturnHotelPriceByAscendingOrder()
     {
-        var matchHotels = MatchedFlightsAndHotels.FindMatchHotels(TravelingTo, Duration, DepartureDate);
-        matchHotels.Sort((hotelA, hotelB) => hotelA.HotelPricePerNight.CompareTo(hotelB.HotelPricePerNight));
-        return matchHotels;
+        try
+        {
+            var matchHotels = MatchedFlightsAndHotels.FindMatchHotels(TravelingTo, Duration, DepartureDate);
+            matchHotels?.Sort((hotelA, hotelB) => hotelA.HotelPricePerNight.CompareTo(hotelB.HotelPricePerNight));
+            return matchHotels;
+        }
+        catch (ArgumentNullException)
+        {
+            Console.WriteLine("There is no hotels available");
+            throw;
+        }
+        
+
     }
     
     private List<decimal> CalculateListOfTotalPrice()
     {
-        var flightPrice = ReturnFlightPriceByAscendingOrder().Select(flight => flight.FlightPrice).ToList();
-        var hotelPrice = ReturnHotelPriceByAscendingOrder().Select(hotel => hotel.HotelPricePerNight*Duration).ToList();
-       
-        return (from flight in flightPrice from hotel in hotelPrice select flight + hotel).Distinct().ToList();
+        try
+        {
+            var flightPrice = ReturnFlightPriceByAscendingOrder().Select(flight => flight.FlightPrice).ToList();
+            var hotelPrice = ReturnHotelPriceByAscendingOrder().Select(hotel => hotel.HotelPricePerNight*Duration).ToList();
+            return (from flight in flightPrice from hotel in hotelPrice select flight + hotel).Distinct().ToList();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Result is not available");
+            throw;
+        }
+        
     }
 }
