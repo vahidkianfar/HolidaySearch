@@ -12,7 +12,7 @@ public class Flights
     public string AirlineName { get; set; }
     
     [JsonPropertyName("from")]
-    public string OriginCity { get; set; }
+    public string? OriginCity { get; set; }
     
     [JsonPropertyName("to")]
     public string DestinationCity { get; set; }
@@ -59,9 +59,9 @@ public class Flights
     }
 
 
-    private static List<string> GetLondonAirports()
+    private static List<string?> GetLondonAirports()
     {
-        var listOfLondonAirport = new List<string> { "LGW", "LTN" };
+        var listOfLondonAirport = new List<string?> { "LGW", "LTN" };
         return listOfLondonAirport;
     }
 }

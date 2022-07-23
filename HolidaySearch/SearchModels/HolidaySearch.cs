@@ -5,10 +5,10 @@ namespace HolidaySearch.SearchModels;
 
 public class HolidaySearch
 {
-    public string DepartingFrom { get; set; }
-    public string TravelingTo { get; set; }
-    public string DepartureDate { get; set; }
-    public int Duration { get; set; }
+    private string DepartingFrom { get; set; }
+    private string TravelingTo { get; set; }
+    private string DepartureDate { get; set; }
+    private int Duration { get; set; }
     
     public HolidaySearch(string departingFrom, string travelingTo, string departureDate, int duration)
     {
