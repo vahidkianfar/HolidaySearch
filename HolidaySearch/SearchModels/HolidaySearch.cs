@@ -18,9 +18,10 @@ public class HolidaySearch
         Duration = duration;
     }
 
-    public int Result()
+    public List<int> Result()
     {
         var listOfFlights = LoadDataFromJson.LoadFlights();
+        var listOfHotels = LoadDataFromJson.LoadHotels();
         
         var matchFlight = listOfFlights.Where(flight =>
             flight.OriginCity == DepartingFrom &&
@@ -28,21 +29,19 @@ public class HolidaySearch
             flight.DepartureDate == DateTime.Parse(DepartureDate)).ToList();
         
         matchFlight.Sort((flightA, flightB) => flightA.FlightPrice.CompareTo(flightB.FlightPrice));
-
-        return matchFlight.First().FlightId;
-    }
-
-    public int ResultHotel()
-    {
         
-        var listOfHotels = LoadDataFromJson.LoadHotels();
         var matchHotel=listOfHotels.Where(hotel=>
             hotel.LocalAirports.First()==TravelingTo &&
             hotel.DurationNights==Duration &&
             hotel.ArrivalDate == DateTime.Parse(DepartureDate)).ToList();
         
         matchHotel.Sort((hotelA, hotelB) => hotelA.HotelPricePerNight.CompareTo(hotelB.HotelPricePerNight));
+        
+        var result = new List<int>();
+        result.Add(matchFlight.First().FlightId);
+        result.Add(matchHotel.First().HotelId);
 
-        return matchHotel.First().HotelId;
+        return result;
     }
+    
 }
