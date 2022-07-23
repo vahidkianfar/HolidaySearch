@@ -26,6 +26,8 @@ public class HolidaySearch
             flight.OriginCity == DepartingFrom &&
             flight.DestinationCity == TravelingTo &&
             flight.DepartureDate == DateTime.Parse(DepartureDate)).ToList();
+        
+        matchFlight.Sort((flightA, flightB) => flightA.FlightPrice.CompareTo(flightB.FlightPrice));
 
         return matchFlight.First().FlightId;
     }
@@ -39,6 +41,8 @@ public class HolidaySearch
             hotel.DurationNights==Duration &&
             hotel.ArrivalDate == DateTime.Parse(DepartureDate)).ToList();
         
+        matchHotel.Sort((hotelA, hotelB) => hotelA.HotelPricePerNight.CompareTo(hotelB.HotelPricePerNight));
+
         return matchHotel.First().HotelId;
     }
 }
