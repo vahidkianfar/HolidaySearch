@@ -22,11 +22,14 @@ public class HolidaySearchTests
         var expectedFlightId = 2;
         var expectedHotelId = 9;
 
-        var resultFlightAndHotelId = holidaySearch.OldResult();
-       
-
-        resultFlightAndHotelId[0].Should().Be(expectedFlightId);
-        resultFlightAndHotelId[1].Should().Be(expectedHotelId);
+        var resultFlightId = holidaySearch.Result().FlightsList.First().FlightId;
+        var resultHotelId = holidaySearch.Result().HotelsList.First().HotelId;
+        
+        
+        resultFlightId.Should().Be(expectedFlightId);
+        resultHotelId.Should().Be(expectedHotelId);
         
     }
+    
+    
 }
