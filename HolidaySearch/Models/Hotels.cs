@@ -11,7 +11,7 @@ public class Hotels
     public string HotelName { get; set; }
     
     [JsonPropertyName("arrival_date")]
-    public string ArrivalDate { get; set; }
+    public DateTime ArrivalDate { get; set; }
     
     [JsonPropertyName("price_per_night")]
     public decimal HotelPricePerNight { get; set; }
