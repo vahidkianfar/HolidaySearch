@@ -19,7 +19,12 @@ public class HolidaySearchTests
         duration: 7
         );
 
-        holidaySearch.Result();
+        var expectedFlightId = 2;
+
+        var result = holidaySearch.Result();
+
+        result.Should().Be(expectedFlightId);
+
 
     }
 }

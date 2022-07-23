@@ -18,13 +18,17 @@ public class HolidaySearch
         Duration = duration;
     }
 
-    public void Result()
+    public int Result()
     {
-        var matchFlights = LoadDataFromJson.LoadFlights();
-        var matchHotels = LoadDataFromJson.LoadHotels();
+        var listOfFlights = LoadDataFromJson.LoadFlights();
+        var listOfHotels = LoadDataFromJson.LoadHotels();
         
-        Console.WriteLine(matchFlights.First().FlightId);
-        Console.WriteLine(matchHotels.First().HotelId);
+        var matchFlight = listOfFlights.Where(flight =>
+            flight.OriginCity == DepartingFrom &&
+            flight.DestinationCity == TravelingTo &&
+            flight.DepartureDate == DateTime.Parse(DepartureDate)).ToList();
         
+        
+        return matchFlight.First().FlightId;
     }
 }
