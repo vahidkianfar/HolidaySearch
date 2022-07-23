@@ -22,13 +22,4 @@ public class Hotels
     
     [JsonPropertyName("nights")]
     public int DurationNights { get; set; }
-
-    public static List<Hotels> FindMatchHotels(string destinationCity, int duration , string departureDate)
-    {
-        var hotels = LoadDataFromJson.LoadHotels();
-        var match = hotels.Where(hotel => hotel.LocalAirports.First() == destinationCity
-                                          && hotel.DurationNights == duration && 
-                                          hotel.ArrivalDate == DateTime.Parse(departureDate)).ToList() ;
-        return match;
-    }
 }

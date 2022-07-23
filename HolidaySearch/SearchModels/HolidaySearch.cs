@@ -18,9 +18,9 @@ public class HolidaySearch
         Duration = duration;
     }
 
-    public MatchFlightsAndHotels Result()
+    public MatchedFlightsAndHotels Result()
     {
-        var cheapest = new MatchFlightsAndHotels
+        var cheapest = new MatchedFlightsAndHotels
         {
             FlightsList = ReturnFlightPriceByAscendingOrder(),
             HotelsList = ReturnHotelPriceByAscendingOrder(),
@@ -32,14 +32,14 @@ public class HolidaySearch
     
     private List<Flights> ReturnFlightPriceByAscendingOrder()
     {
-        var matchFlights = Flights.FindMatchFlights(DepartingFrom, TravelingTo, DepartureDate);
+        var matchFlights = MatchedFlightsAndHotels.FindMatchFlights(DepartingFrom, TravelingTo, DepartureDate);
         matchFlights.Sort((flightA, flightB) => flightA.FlightPrice.CompareTo(flightB.FlightPrice));
         return matchFlights;
     }
 
     private List<Hotels> ReturnHotelPriceByAscendingOrder()
     {
-        var matchHotels = Hotels.FindMatchHotels(TravelingTo, Duration, DepartureDate);
+        var matchHotels = MatchedFlightsAndHotels.FindMatchHotels(TravelingTo, Duration, DepartureDate);
         matchHotels.Sort((hotelA, hotelB) => hotelA.HotelPricePerNight.CompareTo(hotelB.HotelPricePerNight));
         return matchHotels;
     }
