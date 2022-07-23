@@ -20,10 +20,15 @@ public class HolidaySearchTests
         );
 
         var expectedFlightId = 2;
+        var expectedHotelId = 9;
 
-        var result = holidaySearch.Result();
+        var resultFlight = holidaySearch.Result();
+        var resultHotel = holidaySearch.ResultHotel();
 
-        result.Should().Be(expectedFlightId);
+        resultFlight.Should().Be(expectedFlightId);
+        resultHotel.Should().Be(expectedHotelId);
+        
+        
 
 
     }
