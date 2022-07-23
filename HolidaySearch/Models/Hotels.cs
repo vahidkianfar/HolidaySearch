@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using HolidaySearch.LoadDataModels;
 
 namespace HolidaySearch.Models;
 
@@ -21,5 +22,4 @@ public class Hotels
     
     [JsonPropertyName("nights")]
     public int DurationNights { get; set; }
-    
 }

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using HolidaySearch.LoadDataModels;
 
 namespace HolidaySearch.Models;
 
@@ -22,5 +23,7 @@ public class Flights
     [JsonPropertyName("departure_date")]
     
     public DateTime DepartureDate { get; set; }
+    
+    
     
 }

@@ -22,7 +22,7 @@ public class HolidaySearchTests
         var expectedFlightId = 2;
         var expectedHotelId = 9;
 
-        var resultFlightAndHotelId = holidaySearch.Result();
+        var resultFlightAndHotelId = holidaySearch.OldResult();
        
 
         resultFlightAndHotelId[0].Should().Be(expectedFlightId);
