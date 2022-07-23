@@ -21,7 +21,6 @@ public class HolidaySearch
     public int Result()
     {
         var listOfFlights = LoadDataFromJson.LoadFlights();
-        var listOfHotels = LoadDataFromJson.LoadHotels();
         
         var matchFlight = listOfFlights.Where(flight =>
             flight.OriginCity == DepartingFrom &&
@@ -29,6 +28,21 @@ public class HolidaySearch
             flight.DepartureDate == DateTime.Parse(DepartureDate)).ToList();
         
         
+                                 
+        
+        
         return matchFlight.First().FlightId;
+    }
+
+    public int ResultHotel()
+    {
+        
+        var listOfHotels = LoadDataFromJson.LoadHotels();
+        var matchHotel=listOfHotels.Where(hotel=>
+            //hotel.LocalAirport.First()==DepartingFrom &&
+            hotel.DurationNights==Duration &&
+            hotel.ArrivalDate == DateTime.Parse(DepartureDate)).ToList();
+        
+        return matchHotel.First().HotelId;
     }
 }
