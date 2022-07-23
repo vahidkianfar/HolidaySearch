@@ -20,4 +20,9 @@
       <ProjectReference Include="..\HolidaySearch\HolidaySearch.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Flights" />
+      <Folder Include="HolidaySearch" />
+    </ItemGroup>
+
 </Project>
