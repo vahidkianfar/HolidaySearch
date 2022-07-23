@@ -22,11 +22,9 @@ public class HolidaySearch
     {
         var cheapest = new MatchFlightsAndHotels
         {
-            
             FlightsList = ReturnFlightPriceByAscendingOrder(),
             HotelsList = ReturnHotelPriceByAscendingOrder(),
             ListOfTotalPrices = CalculateListOfTotalPrice()
-
         };
 
         return cheapest;
@@ -53,33 +51,4 @@ public class HolidaySearch
        
         return (from flight in flightPrice from hotel in hotelPrice select flight + hotel).Distinct().ToList();
     }
-    
-    //
-    //
-    //
-    // public List<int> OldResult()
-    // {
-    //     var listOfFlights = LoadDataFromJson.LoadFlights();
-    //     var listOfHotels = LoadDataFromJson.LoadHotels();
-    //     
-    //     var matchFlight = listOfFlights.Where(flight =>
-    //         flight.OriginCity == DepartingFrom &&
-    //         flight.DestinationCity == TravelingTo &&
-    //         flight.DepartureDate == DateTime.Parse(DepartureDate)).ToList();
-    //     
-    //     matchFlight.Sort((flightA, flightB) => flightA.FlightPrice.CompareTo(flightB.FlightPrice));
-    //     
-    //     var matchHotel=listOfHotels.Where(hotel=>
-    //         hotel.LocalAirports.First()==TravelingTo &&
-    //         hotel.DurationNights==Duration &&
-    //         hotel.ArrivalDate == DateTime.Parse(DepartureDate)).ToList();
-    //     
-    //     matchHotel.Sort((hotelA, hotelB) => hotelA.HotelPricePerNight.CompareTo(hotelB.HotelPricePerNight));
-    //     
-    //     var result = new List<int>();
-    //     result.Add(matchFlight.First().FlightId);
-    //     result.Add(matchHotel.First().HotelId);
-    //
-    //     return result;
-    // }
 }
