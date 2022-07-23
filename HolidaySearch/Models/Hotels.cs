@@ -16,8 +16,8 @@ public class Hotels
     [JsonPropertyName("price_per_night")]
     public decimal HotelPricePerNight { get; set; }
     
-    [JsonPropertyName("local_airport")]
-    public List<string> LocalAirport { get; set; }
+    [JsonPropertyName("local_airports")]
+    public List<string> LocalAirports { get; set; }
     
     [JsonPropertyName("nights")]
     public int DurationNights { get; set; }

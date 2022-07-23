@@ -19,7 +19,7 @@ public class HotelsTests
             HotelName = "Iberostar Grand Portals Nous",
             ArrivalDate = Convert.ToDateTime("2022-11-05"),
             HotelPricePerNight = 100,
-            LocalAirport = new List<string> { "TFS" },
+            LocalAirports = new List<string> { "TFS" },
             DurationNights = 7
         };
         Assert.Multiple(() =>

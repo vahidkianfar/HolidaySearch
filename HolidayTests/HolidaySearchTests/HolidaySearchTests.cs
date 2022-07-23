@@ -28,8 +28,5 @@ public class HolidaySearchTests
         resultFlight.Should().Be(expectedFlightId);
         resultHotel.Should().Be(expectedHotelId);
         
-        
-
-
     }
 }
