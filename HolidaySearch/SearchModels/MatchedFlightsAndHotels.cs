@@ -9,19 +9,31 @@ public class MatchedFlightsAndHotels
     public List<Hotels>? HotelsList { get; set; }
     public List<decimal>? ListOfTotalPrices { get; set; }
 
-    public static List<Hotels> FindMatchHotels(string destinationCity, int duration , string departureDate)
+    public static List<Hotels?>? FindMatchHotels(string destinationCity, int duration , string departureDate)
     {
         var hotels = LoadDataFromJson.LoadHotels();
-        var match = hotels.Where(hotel => hotel.LocalAirports.First() == destinationCity
-                                          && hotel.DurationNights == duration && 
-                                          hotel.ArrivalDate == DateTime.Parse(departureDate)).ToList() ;
-        return match;
+
+        try
+        {
+            var match = hotels.Where(hotel => hotel.LocalAirports.First() == destinationCity
+                                              && hotel.DurationNights == duration && 
+                                              hotel.ArrivalDate == DateTime.Parse(departureDate)).ToList();
+        
+            return match;
+
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("No hotels found");
+            throw;
+        }
+        
     }
 
-    public static List<Flights> FindMatchFlights(string originCity, string destinationCity, string departureDate)
+    public static List<Flights?>? FindMatchFlights(string originCity, string destinationCity, string departureDate)
     {
         var flights = LoadDataFromJson.LoadFlights();
-        List<Flights> match;
+        List<Flights?> match;
 
         if (originCity.Contains("London"))
         {
@@ -49,7 +61,7 @@ public class MatchedFlightsAndHotels
                     flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
         }
 
-        return match;
+        return match.Count==0 ? null : match;
     }
 
 
