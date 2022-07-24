@@ -4,20 +4,21 @@
 
 | Section     | Brief description   | Documentatin |
 | ---------- | ---------------------------- | -------------------- |
-| **Container**    | Files and folders in the app| [Click Here](#container) |
+| **Files and Folders**    | Files and folders in the app| [Click Here](#files-and-folders) |
 | **Description**    | Json files properties| [Click Here](#description) |
 | **Instructions**    | How the app works (examples)| [Click Here](#instructions)|
 | **Features**    | Features and future thoughts| [Click Here](#features-and-future-thoughts)|
 | **UI**| A simple UI| [Click Here](#simple-console-ui)|
 | **UML Diagram**| UML-Diagram|[Click Here](#uml-diagram)|
 
-# Container
+# Files and Folders
 [Back to top](#holidaysearch)
 
-1.This App contains five main folders:
+1.This App contains six main folders:
 
 - Datasets (Flights.json and Hotels.json)
 - LoadDataModels (LoadDataFromJson)
+- Interfaces (IFlights and IHotels)
 - Models (Flights and Hotels)
 - SearchModels (HolidaySearch and MatchedFlightsAndHotels)
 - UI (MainMenu, SearchMenu and ConsoleHelper)
