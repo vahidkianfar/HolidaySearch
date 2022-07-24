@@ -1,4 +1,4 @@
-# HolidaySearch
+# HolidaySearch 🐾✈️🧳
 
  **Table of contents:**
 
