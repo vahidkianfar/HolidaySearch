@@ -14,7 +14,7 @@
 # Container
 [Back to top](#holidaysearch)
 
-This App contains five main folders:
+1. This App contains five main folders:
 
 - Datasets (Flights.json and Hotels.json)
 - LoadDataModels (LoadDataFromJson)
@@ -22,7 +22,7 @@ This App contains five main folders:
 - SearchModels (HolidaySearch and MatchedFlightsAndHotels)
 - UI (MainMenu, SearchMenu and ConsoleHelper)
 
-Unit Tests contains four main folders:
+2. **Unit Tests** contains four main folders:
 
 - HolidaySearchTests:
     1. HolidaySearchTests (Result Method)
