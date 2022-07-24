@@ -22,13 +22,22 @@ public class FindMatchFlightsTests
         result[1].FlightId.Should().Be(11);
     }
     [Test]
-    public void FindMatchFlights_Should_Return_List_of_Matched_Flights_MAN_To_AGP()
+    public void FindMatchFlights_Should_Return_List_of_Matched_Flights_MAN_To_AGP_Month07_Day_01()
     {
         var result = MatchedFlightsAndHotels.FindMatchFlights("MAN", "AGP", "2023/07/01");
         
         result.Should().BeOfType<List<Flights>>();
         result.Count.Should().Be(1);
         result.First().FlightId.Should().Be(2);
+    }
+    [Test]
+    public void FindMatchFlights_Should_Return_List_of_Matched_Flights_MAN_To_AGP_Month10_Day25()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchFlights("MAN", "AGP", "2023/10/25");
+        
+        result.Should().BeOfType<List<Flights>>();
+        result.Count.Should().Be(1);
+        result.First().FlightId.Should().Be(12);
     }
     [Test]
     public void FindMatchFlights_Should_Return_List_of_Matched_Flights_LTN_To_PMI()
