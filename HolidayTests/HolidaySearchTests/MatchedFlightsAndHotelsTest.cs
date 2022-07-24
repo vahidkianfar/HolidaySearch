@@ -7,7 +7,7 @@ namespace HolidayTests.HolidaySearchTests;
 public class MatchedFlightsAndHotelsTest
 {
     [Test]
-    public void FindMatchFlights_Should_Return_List_of_Matched_Flights_LGW_To_AGP()
+    public void FindMatchFlights_Should_Return_Two_Matched_Flights_LGW_To_AGP()
     {
         var result = MatchedFlightsAndHotels.FindMatchFlights("LGW", "AGP", "2023/07/01");
         
@@ -36,6 +36,30 @@ public class MatchedFlightsAndHotelsTest
     }
     
     [Test]
+    public void FindMatchFlights_Should_Return_Four_Matched_Flights_AnyAirport_To_PMI()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchFlights("", "PMI", "2023/06/15");
+        
+        result.Should().BeOfType<List<Flights>>();
+        result.Count.Should().Be(4);
+        
+        result[0].FlightId.Should().Be(3);
+        result[1].FlightId.Should().Be(4);
+        result[2].FlightId.Should().Be(5);
+        result[3].FlightId.Should().Be(6);
+    }
+    [Test]
+    public void FindMatchFlights_Should_Return_Two_Matched_Flights_Any_London_Airport_To_PMI()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchFlights("Any London Airport", "PMI", "2023/06/15");
+        
+        result.Should().BeOfType<List<Flights>>();
+        result.Count.Should().Be(2);
+        
+        result[0].FlightId.Should().Be(4);
+        result[1].FlightId.Should().Be(6);
+    }
+    [Test]
     public void FindMatchHotels_Should_Return_List_of_Matched_Hotels_in_TFS()
     {
         var result = MatchedFlightsAndHotels.FindMatchHotels("TFS", 7, "2022/11/05");
@@ -46,7 +70,7 @@ public class MatchedFlightsAndHotelsTest
         result[1].HotelId.Should().Be(2);
     }
     [Test]
-    public void FindMatchHotels_Should_Return_List_of_Matched_Hotels_in_PMI_14_Days()
+    public void FindMatchHotels_Should_Return_Two_Matched_Hotels_in_PMI_14_Days()
     {
         var result = MatchedFlightsAndHotels.FindMatchHotels("PMI", 14, "2023/06/15");
         

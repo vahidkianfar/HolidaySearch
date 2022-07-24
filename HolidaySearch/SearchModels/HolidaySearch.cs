@@ -41,7 +41,6 @@ public class HolidaySearch
 
     public List<Hotels> ReturnHotelPriceByAscendingOrder()
     {
-        
         var matchHotels = MatchedFlightsAndHotels.FindMatchHotels(TravelingTo, Duration, DepartureDate);
         matchHotels.Sort((hotelA, hotelB) => hotelA.HotelPricePerNight.CompareTo(hotelB.HotelPricePerNight));
         return matchHotels;
