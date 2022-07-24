@@ -9,6 +9,7 @@
 | **Instructions**    | How the app works (examples)| [Click Here](#instructions)|
 | **Features**    | Features and future thoughts| [Click Here](#features-and-future-thoughts)|
 | **UI**| A simple UI| [Click Here](#simple-console-ui)|
+| **UML Diagram**| UML-Diagram|[Click Here](#uml-diagram)|
 
 # Container
 [Back to top](#holidaysearch)
@@ -107,3 +108,8 @@ I have two different Json files which stored the details about flights and hotel
 6. User can select "Any Airport" and "Any London Airport"
 
 
+## UML Diagram
+[Back to top](#holidaysearch)
+
+
+![] (https://github.com/vahidkianfar/HolidaySearch/blob/master/HolidaySearch/UML%20Diagram/HolidaySearch.png)
