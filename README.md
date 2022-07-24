@@ -22,7 +22,7 @@
 - SearchModels (HolidaySearch and MatchedFlightsAndHotels)
 - UI (MainMenu, SearchMenu and ConsoleHelper)
 
-2.**Unit Tests** contains four main folders:
+2.**Unit Tests** contains three main folders:
 
 - HolidaySearchTests:
     1. HolidaySearchTests (Result Method)
