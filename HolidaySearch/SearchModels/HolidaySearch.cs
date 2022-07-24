@@ -61,11 +61,24 @@ public class HolidaySearch
         Console.Clear();
         AnsiConsole.Write(
             new Table()
+                .AddColumn(new TableColumn("Airline Name").Centered())
                 .AddColumn(new TableColumn("Flight ID").Centered())
+                .AddColumn(new TableColumn("Flight Price").Centered())
+                .AddColumn(new TableColumn("Departure Date").Centered())
+                .AddColumn(new TableColumn("Hotel Name").Centered())
                 .AddColumn(new TableColumn("Hotel ID").Centered())
+                .AddColumn(new TableColumn("Hotel Price per night").Centered())
+                .AddColumn(new TableColumn("Duration").Centered())
                 .AddColumn(new TableColumn("Total Price").Centered())
-                .AddRow($"[skyblue1]{Result().FlightsList.First().FlightId}[/]",
+                
+                .AddRow($"[skyblue1]{Result().FlightsList.First().AirlineName}[/]",
+                    $"[skyblue1]{Result().FlightsList.First().FlightId}[/]",
+                    $"[skyblue1]{Result().FlightsList.First().FlightPrice}[/]",
+                    $"[skyblue1]{Result().FlightsList.First().DepartureDate:yyyy/MM/dd}[/]",
+                    $"[skyblue1]{Result().HotelsList.First().HotelName}[/]",
                     $"[skyblue1]{Result().HotelsList.First().HotelId}[/]",
+                    $"[skyblue1]{Result().HotelsList.First().HotelPricePerNight}[/]",
+                    $"[skyblue1]{Result().HotelsList.First().DurationNights}[/]",
                     $"[green]{Result().ListOfTotalPrices.First().ToString("C", new CultureInfo("en-GB"))}[/]")
                 .BorderColor(Color.Yellow2));
         
