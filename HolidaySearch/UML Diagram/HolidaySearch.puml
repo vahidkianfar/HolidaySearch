@@ -1,0 +1,68 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+class Flights
+{
+    +FlightId: int
+    +AirlineName: string
+    +DepartingFrom: string
+    +TravelingTo: string
+    +FlightPrice: decimal
+    +DepartureDate: DateTime
+}
+
+class Hotels
+{
+    +HotelId: int
+    +HotelName: string
+    +ArrivalDate: DateTime
+    +HotelPricePerNight: decimal
+    +LocalAirports: List<string>
+    +DurationNights: int
+
+}
+
+class MatchedFlightsAndHotels
+{
+    +FlightList: List<Flights>
+    +HotelList: List<Hotels>
+    +ListOfTotalPrices: List<decimal>
+    
+    +FindMatchHotels(travelingTo: string ,duration: int ,departureDate: string): List<Hotels>
+    +FindMatchFlights(departingFrom: string, travelingTo: string, departureDate: string ): List<Flights>
+    -ReturnAnyAvailableLondonAirport(flights: List<Flights>,travelingTo: string, departureDate: string): List<Flights>
+    -ReturnAnyAvailableAirport(flights: List<Flights>,travelingTo: string, departureDate: string): List<Flights>
+    -GetLondonAirports(): List<string>
+}
+
+class LoadDataFromJson
+{
+    -DatasetPath: DirectoryInfo
+    +LoadFlights(): List<Flights>
+    +LoadHotels(): List<Hotels>
+}
+
+class HolidaySearch
+{
+    -DepartingFrom: string
+    -TravelingTo: string
+    -DepartureDate: string
+    -Duration: int
+    
+    +Result(): MatchedFlightsAndHotels
+    +ReturnFlightPriceByAscendingOrder(flights: List<Flights>): List<Flights>
+    +ReturnHotelPriceByAscendingOrder(hotels: List<Hotels>): List<Hotels>
+    +CalculateListOfTotalPrice(): List<decimal>
+}
+
+HolidaySearch ---> Flights
+HolidaySearch ---> Hotels
+HolidaySearch ---> MatchedFlightsAndHotels
+
+MatchedFlightsAndHotels ---> LoadDataFromJson
+MatchedFlightsAndHotels ---> Flights
+MatchedFlightsAndHotels ---> Hotels
+
+LoadDataFromJson ---> Flights
+LoadDataFromJson ---> Hotels
+@enduml
