@@ -14,14 +14,18 @@ public class HolidaySearchTests
     [Test]
     public void ReturnFlightPriceByAscendingOrder_Should_Sort_and_Return_Matched_Flights()
     {
+        //Arrange
         var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
             departingFrom: "LGW",
             travelingTo: "AGP",
             departureDate: "2023/07/01",
             duration: 7
         );
+        
+        //Act
         var result= holidaySearch.ReturnFlightPriceByAscendingOrder();
         
+        //Assert
         result.First().FlightPrice.Should().BeLessThan(result.Last().FlightPrice);
     }
     [Test]
@@ -33,6 +37,7 @@ public class HolidaySearchTests
             departureDate: "2022/11/05",
             duration: 7
         );
+        
         var result= holidaySearch.ReturnHotelPriceByAscendingOrder();
         
         result.First().HotelPricePerNight.Should().BeLessThan(result.Last().HotelPricePerNight);
@@ -56,6 +61,7 @@ public class HolidaySearchTests
     [Test]
     public void HolidaySearch_Should_Return_All_Available_Flights_and_Hotels_From_Man_To_AGP()
     {
+        //Arrange
         var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
         departingFrom: "MAN",
         travelingTo: "AGP",
@@ -65,11 +71,12 @@ public class HolidaySearchTests
 
         var expectedFlightId = 2;
         var expectedHotelId = 9;
-
+        
+        //Act
         var resultFlightId = holidaySearch.Result().FlightsList.First().FlightId;
         var resultHotelId = holidaySearch.Result().HotelsList.First().HotelId;
         
-        
+        //Assert
         resultFlightId.Should().Be(expectedFlightId);
         resultHotelId.Should().Be(expectedHotelId);
         
@@ -107,14 +114,13 @@ public class HolidaySearchTests
         var expectedHotelId = 9;
         
         var resultFlightId1 = holidaySearch.Result().FlightsList.First().FlightId;
-        
         var resultFlightId2 = holidaySearch.Result().FlightsList[1].FlightId;
         var resultHotelId = holidaySearch.Result().HotelsList.First().HotelId;
         
         resultFlightId1.Should().Be(expectedFlightId1);
         resultFlightId2.Should().Be(expectedFlightId2);
         resultHotelId.Should().Be(expectedHotelId);
-        
+
     }
 
     [Test]

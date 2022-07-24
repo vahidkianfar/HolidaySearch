@@ -9,8 +9,13 @@ public class MatchedFlightsAndHotelsTest
     [Test]
     public void FindMatchFlights_Should_Return_Two_Matched_Flights_LGW_To_AGP()
     {
-        var result = MatchedFlightsAndHotels.FindMatchFlights("LGW", "AGP", "2023/07/01");
+        //Arrange
+        List<Flights> result;
         
+        //Act
+        result = MatchedFlightsAndHotels.FindMatchFlights("LGW", "AGP", "2023/07/01");
+        
+        //Assert
         result.Should().BeOfType<List<Flights>>();
         result.Count.Should().Be(2);
         result[0].FlightId.Should().Be(10);
