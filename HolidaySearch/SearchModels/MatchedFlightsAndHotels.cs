@@ -24,24 +24,12 @@ public class MatchedFlightsAndHotels
         var flights = LoadDataFromJson.LoadFlights();
         List<Flights> match;
 
-        if (originCity.Contains("London"))
-        {
-            var listOfLondonAirport = GetLondonAirports();
-            match =
-                flights!.Where(flight =>
-                    listOfLondonAirport.Contains(flight.OriginCity!)
-                    && flight.DestinationCity == destinationCity &&
-                    flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
-        }
-        
+        if (originCity.Contains("London")) 
+            match = ReturnAnyAvailableLondonAirport(flights, destinationCity, departureDate);
+
         else if (originCity=="Any Airport" || string.IsNullOrEmpty(originCity))
-        {
-            match =
-                flights!.Where(flight =>
-                    flight.DestinationCity == destinationCity &&
-                    flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
-        }
-        
+            match = ReturnAnyAvailableAirport(flights, destinationCity, departureDate);
+
         else
         {
             match =
@@ -54,6 +42,26 @@ public class MatchedFlightsAndHotels
     }
 
 
+
+    private static List<Flights> ReturnAnyAvailableLondonAirport(List<Flights> flights , string destinationCity, string departureDate)
+    {
+        var listOfLondonAirport = GetLondonAirports();
+        var match = flights!.Where(flight =>
+                listOfLondonAirport.Contains(flight.OriginCity!)
+                && flight.DestinationCity == destinationCity &&
+                flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
+        
+        return match;
+    }
+    private static List<Flights> ReturnAnyAvailableAirport(List<Flights> flights , string destinationCity, string departureDate)
+    {
+        var match =
+            flights.Where(flight =>
+                flight.DestinationCity == destinationCity &&
+                flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
+        
+        return match;
+    }
     private static List<string> GetLondonAirports()
     {
         var listOfLondonAirport = new List<string> { "LGW", "LTN" };
