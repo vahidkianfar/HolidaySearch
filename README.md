@@ -7,10 +7,7 @@
 | **Container**    | Files and folders in the app| [Click Here](#container) |
 | **Description**    | Json files properties| [Click Here](#description) |
 | **Instructions**    | How the app works (examples)| [Click Here](#instructions)|
-| **Features**    | 4| [Click Here](#features)|
-
-
-
+| **Features**    | Features and future thoughts| [Click Here](#features-and-future-thoughts)|
 
 # Container
 
@@ -89,7 +86,9 @@ I have two different Json files which stored the details about flights and hotel
 
 ![](https://github.com/vahidkianfar/HolidaySearch/blob/master/HolidaySearch/Gif/HolidaySearch-VS.gif)
 
-## Features
-
+## Features and Future Thoughts
+1. I wrote seperate methods for finding list of matched flights and list of matched hotels
+2. The client would be able to find only flights or hotels
+3. the **Result** method on **HolidaySearch** class will return a list of matched flight and hotel together and a list of total prices.
 
 
