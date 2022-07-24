@@ -1,3 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using HolidaySearch.UI;
 
-Console.WriteLine("Hello, World!");
+MainMenu.Start();
