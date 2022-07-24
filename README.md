@@ -8,8 +8,10 @@
 | **Description**    | Json files properties| [Click Here](#description) |
 | **Instructions**    | How the app works (examples)| [Click Here](#instructions)|
 | **Features**    | Features and future thoughts| [Click Here](#features-and-future-thoughts)|
+| **UI**| A simple UI| [Click Here](#simple-console-ui)|
 
 # Container
+[Back to top](#holidaysearch)
 
 This App contains five main folders:
 
@@ -31,6 +33,8 @@ In this project I created a searching method to find the cheapest available flig
 
 
 ## Description
+
+[Back to top](#holidaysearch)
 
 I have two different Json files which stored the details about flights and hotels:
 
@@ -55,6 +59,7 @@ I have two different Json files which stored the details about flights and hotel
 
 
 ## Instructions
+[Back to top](#holidaysearch)
 
 1. Client enter the *departure city*, *destination city*, *departure date* and *duration*
 2. Client will see the *FlightId*, *HotelId* and *TotalPrice*
@@ -82,13 +87,19 @@ I have two different Json files which stored the details about flights and hotel
 ##### Expected result  
  * Flight 6 and Hotel 5
 
-### A simple console UI :
+### Simple console UI:
+[Back to top](#holidaysearch)
 
 ![](https://github.com/vahidkianfar/HolidaySearch/blob/master/HolidaySearch/Gif/HolidaySearch-VS.gif)
 
 ## Features and Future Thoughts
-1. I wrote seperate methods for finding list of matched flights and list of matched hotels
-2. The client would be able to find only flights or hotels
-3. the **Result** method on **HolidaySearch** class will return a list of matched flight and hotel together and a list of total prices.
+[Back to top](#holidaysearch)
+
+1. I wrote seperate methods for finding list of matched flights and list of matched hotels.
+2. I use List<Flights> and List<Hotels> so I can easily retrieve data by query (LINQ method).
+3. The client would be able to find only flights or hotels.
+4. The **Result** method on **HolidaySearch** class will create a new object of *MatchedFlightsAndHotels* which stores a list of available flights and hotels.
+5. The **Result** method on **HolidaySearch** class will return a list of matched flight and hotel together and a list of total prices.
+6. User can select "Any Airport" and "Any London Airport"
 
 
