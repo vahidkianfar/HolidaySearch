@@ -66,8 +66,8 @@ I have two different Json files which stored the details about flights and hotel
 ## Instructions
 [Back to top](#holidaysearch)
 
-1. Client enter the *departure city*, *destination city*, *departure date* and *duration*
-2. Client will see the *FlightId*, *HotelId* and *TotalPrice*
+1. Customer can enter the *departure city*, *destination city*, *departure date* and *duration*
+2. Customer will see the *FlightId*, *HotelId* and *TotalPrice*
 
 ### Example 1:
 ##### Input
