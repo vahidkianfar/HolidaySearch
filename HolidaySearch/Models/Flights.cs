@@ -1,9 +1,9 @@
 ﻿using System.Text.Json.Serialization;
-using HolidaySearch.LoadDataModels;
+using HolidaySearch.Interfaces;
 
 namespace HolidaySearch.Models;
 
-public class Flights
+public class Flights:IFlights
 {
     [JsonPropertyName("id")]
     public int FlightId { get; set; }

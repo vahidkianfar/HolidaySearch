@@ -1,8 +1,9 @@
 ﻿using System.Text.Json.Serialization;
+using HolidaySearch.Interfaces;
 
 namespace HolidaySearch.Models;
 
-public class Hotels
+public class Hotels:IHotels
 {
     [JsonPropertyName("id")]
     public int HotelId { get; set; }
