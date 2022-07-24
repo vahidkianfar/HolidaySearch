@@ -1,5 +1,19 @@
 # HolidaySearch
 
+ **Table of contents:**
+
+| Section     | Brief description   | Documentatin |
+| ---------- | ---------------------------- | -------------------- |
+| **Container**    | Files and folders in the app| [Click Here](#container) |
+| **Description**    | Json files properties| [Click Here](#description) |
+| **Instruction**    | How the app works (examples)| [Click Here](#instruction)|
+| **Features**    | 4| [Click Here](#features)|
+
+
+
+
+# Container
+
 This App contains five main folders:
 
 - Datasets (Flights.json and Hotels.json)
@@ -42,18 +56,40 @@ I have two different Json files which stored the details about flights and hotel
     "local_airports": ["TFS"],
     "nights": 7
 
+
 ## Instructions
 
 1. Client enter the *departure city*, *destination city*, *departure date* and *duration*
 2. Client will see the *FlightId*, *HotelId* and *TotalPrice*
 
-A simple console UI :
+### Example 1:
+##### Input
+
+ * Departing from: Manchester Airport (MAN)
+ * Traveling to: Malaga Airport (AGP)
+ * Departure Date: 2023/07/01
+ * Duration: 7 nights
+
+##### Expected result  
+ * Flight 2 and Hotel 9
+ 
+ 
+### Example 2:
+##### Input
+
+ * Departing from: Any London Airport
+ * Traveling to: Mallorca Airport (PMI)
+ * Departure Date: 2023/06/15
+ * Duration: 10 nights
+
+##### Expected result  
+ * Flight 6 and Hotel 5
+
+### A simple console UI :
 
 ![](https://github.com/vahidkianfar/HolidaySearch/blob/master/HolidaySearch/Gif/HolidaySearch-VS.gif)
 
 ## Features
 
-1.
-2.
 
 
