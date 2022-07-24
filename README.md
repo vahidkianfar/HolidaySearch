@@ -6,7 +6,7 @@
 | ---------- | ---------------------------- | -------------------- |
 | **Container**    | Files and folders in the app| [Click Here](#container) |
 | **Description**    | Json files properties| [Click Here](#description) |
-| **Instruction**    | How the app works (examples)| [Click Here](#instruction)|
+| **Instructions**    | How the app works (examples)| [Click Here](#instructions)|
 | **Features**    | 4| [Click Here](#features)|
 
 
