@@ -26,7 +26,6 @@ I have two different Json files which stored the details about flights and hotel
 - 1 record of Flights.json ["id", "airline", "from", "to", "price", "departure_date"]
 
 '''
-{
 
     "id": 1,
 
@@ -40,14 +39,12 @@ I have two different Json files which stored the details about flights and hotel
 
     "departure_date": "2023-07-01"
 
-  },
 '''
 
 - 1 record of Hotels.json ["id", "name", "arrival_date", "price_per_night", "local_airports", "nights"]
 
 
 '''
-{
 
     "id": 2,
 
@@ -61,7 +58,6 @@ I have two different Json files which stored the details about flights and hotel
 
     "nights": 7
 
-  },
 
  '''
 
