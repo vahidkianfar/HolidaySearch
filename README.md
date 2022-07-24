@@ -23,41 +23,37 @@ In this project I created a searching method to find the cheapest available flig
 
 I have two different Json files which stored the details about flights and hotels:
 
-- 1 record of Flights.json ["id", "airline", "from", "to", "price", "departure_date"]
-
-'''
+1- A record of **Flights.json** [*"id", "airline", "from", "to", "price", "departure_date"*]
 
     "id": 1,
-
     "airline": "First Class Air",
-
     "from": "MAN",
-
     "to": "TFS",
-
     "price": 470,
-
     "departure_date": "2023-07-01"
 
-'''
 
-- 1 record of Hotels.json ["id", "name", "arrival_date", "price_per_night", "local_airports", "nights"]
-
-
-'''
+2- A record of **Hotels.json** [*"id", "name", "arrival_date", "price_per_night", "local_airports", "nights"*]
 
     "id": 2,
-
     "name": "Laguna Park 2",
-
     "arrival_date": "2022-11-05",
-
     "price_per_night": 50,
-
     "local_airports": ["TFS"],
-
     "nights": 7
 
+## Instructions
 
- '''
+1. Client enter the *departure city*, *destination city*, *departure date* and *duration*
+2. Client will see the *FlightId*, *HotelId* and *TotalPrice*
+
+A simple console UI :
+
+![](https://github.com/vahidkianfar/HolidaySearch/blob/master/HolidaySearch/Gif/HolidaySearch-VS.gif)
+
+## Features
+
+1.
+2.
+
 
