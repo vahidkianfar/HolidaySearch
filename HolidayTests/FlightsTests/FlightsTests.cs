@@ -17,8 +17,8 @@ public class FlightsTests
         {
             FlightId = 1,
             AirlineName = "First Class Air",
-            OriginCity = "MAN",
-            DestinationCity = "TSF",
+            DepartingFrom = "MAN",
+            TravelingTo = "TSF",
             FlightPrice = 470,
             DepartureDate = Convert.ToDateTime("2023-07-01"),
         };
@@ -27,8 +27,8 @@ public class FlightsTests
         {
             Assert.That(flight.FlightId, Is.EqualTo(1));
             Assert.That(flight.AirlineName, Is.EqualTo("First Class Air"));
-            Assert.That(flight.OriginCity, Is.EqualTo("MAN"));
-            Assert.That(flight.DestinationCity, Is.EqualTo("TSF"));
+            Assert.That(flight.DepartingFrom, Is.EqualTo("MAN"));
+            Assert.That(flight.TravelingTo, Is.EqualTo("TSF"));
             Assert.That(flight.FlightPrice, Is.EqualTo(470));
             Assert.That(flight.DepartureDate, Is.EqualTo(DateTime.Parse("2023-07-01")));
         });

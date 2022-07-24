@@ -18,7 +18,7 @@ public class JsonToObjectTests
         Assert.IsInstanceOf<Flights>(flight.First());
         flight.Count.Should().Be(12);
         flight.First().FlightId.Should().Be(1);
-        flight.First().OriginCity.Should().Be("MAN");
+        flight.First().DepartingFrom.Should().Be("MAN");
     }
 
     [Test]

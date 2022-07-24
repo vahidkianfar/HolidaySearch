@@ -34,7 +34,7 @@ public class MatchedFlightsAndHotels
         {
             match =
                 flights!.Where(flight =>
-                    flight.OriginCity == originCity && flight.DestinationCity == destinationCity &&
+                    flight.DepartingFrom == originCity && flight.TravelingTo == destinationCity &&
                     flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
         }
 
@@ -47,8 +47,8 @@ public class MatchedFlightsAndHotels
     {
         var listOfLondonAirport = GetLondonAirports();
         var match = flights.Where(flight =>
-                listOfLondonAirport.Contains(flight.OriginCity!)
-                && flight.DestinationCity == destinationCity &&
+                listOfLondonAirport.Contains(flight.DepartingFrom!)
+                && flight.TravelingTo == destinationCity &&
                 flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
         
         return match;
@@ -57,7 +57,7 @@ public class MatchedFlightsAndHotels
     {
         var match =
             flights.Where(flight =>
-                flight.DestinationCity == destinationCity &&
+                flight.TravelingTo == destinationCity &&
                 flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
         
         return match;

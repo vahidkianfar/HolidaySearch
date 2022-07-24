@@ -12,10 +12,10 @@ public class Flights
     public string? AirlineName { get; set; }
     
     [JsonPropertyName("from")]
-    public string? OriginCity { get; set; }
+    public string? DepartingFrom { get; set; }
     
     [JsonPropertyName("to")]
-    public string? DestinationCity { get; set; }
+    public string? TravelingTo { get; set; }
     
     [JsonPropertyName("price")]
     public decimal FlightPrice { get; set; }
