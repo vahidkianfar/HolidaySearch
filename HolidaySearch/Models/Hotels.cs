@@ -9,7 +9,7 @@ public class Hotels
     public int HotelId { get; set; }
     
     [JsonPropertyName("name")]
-    public string HotelName { get; set; }
+    public string? HotelName { get; set; }
     
     [JsonPropertyName("arrival_date")]
     public DateTime ArrivalDate { get; set; }
