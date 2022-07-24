@@ -53,6 +53,9 @@ public class HolidaySearch
     {
         var flightPrice = ReturnFlightPriceByAscendingOrder().Select(flight => flight.FlightPrice).ToList();
         var hotelPrice = ReturnHotelPriceByAscendingOrder().Select(hotel => hotel.HotelPricePerNight*Duration).ToList();
+        if(flightPrice.Count == 0) flightPrice.Add(0);
+        if(hotelPrice.Count == 0) hotelPrice.Add(0);
+        //var result=(from flight in flightPrice from hotel in hotelPrice select flight + hotel).Distinct().ToList();
         return (from flight in flightPrice from hotel in hotelPrice select flight + hotel).Distinct().ToList();
     }
 

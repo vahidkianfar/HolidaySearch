@@ -57,4 +57,37 @@ public class TotalPricesTests
         
         result.First().Should().Be(expectedTotalPrice);
     }
+
+    [Test]
+    public void CalculateTotalPrice_Should_Be_0_For_No_Flights_and_Hotels_Available()
+    {
+        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
+            departingFrom: "MAN",
+            travelingTo: "PMI",
+            departureDate: "2025/06/15",
+            duration: 35
+        );
+        
+        int expectedTotalPrice = 0;
+        
+        var result= holidaySearch.CalculateListOfTotalPrice();
+        
+        result.First().Should().Be(expectedTotalPrice);
+    }
+    [Test]
+    public void CalculateTotalPrice_Should_Be_Only_FlightPrice_For_Available_Flights_But_NotAvailable_Hotels()
+    {
+        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
+            departingFrom: "MAN",
+            travelingTo: "PMI",
+            departureDate: "2023/06/15",
+            duration: 35
+        );
+        
+        var expectedTotalPrice = holidaySearch.ReturnFlightPriceByAscendingOrder().First().FlightPrice;
+        
+        var result= holidaySearch.CalculateListOfTotalPrice();
+        
+        result.First().Should().Be(expectedTotalPrice);
+    }
 }
