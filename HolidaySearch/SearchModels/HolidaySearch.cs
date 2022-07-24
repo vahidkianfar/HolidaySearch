@@ -29,6 +29,9 @@ public class HolidaySearch
             ListOfTotalPrices = CalculateListOfTotalPrice()
         };
 
+        if (cheapest.FlightsList.Count == 0 || cheapest.HotelsList.Count == 0)
+            Console.WriteLine("No results found");
+        
         return cheapest;
     }
     
