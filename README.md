@@ -87,7 +87,7 @@ I have two different Json files which stored the details about flights and hotel
 ##### Expected result  
  * Flight 6 and Hotel 5
 
-### Simple console UI :
+### Simple console UI:
 [Back to top](#holidaysearch)
 
 ![](https://github.com/vahidkianfar/HolidaySearch/blob/master/HolidaySearch/Gif/HolidaySearch-VS.gif)
