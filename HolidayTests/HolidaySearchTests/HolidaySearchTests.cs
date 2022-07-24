@@ -24,6 +24,19 @@ public class HolidaySearchTests
         
         result.First().FlightPrice.Should().BeLessThan(result.Last().FlightPrice);
     }
+    [Test]
+    public void ReturnHotelPriceByAscendingOrder_Should_Sort_and_Return_Matched_Hotels()
+    {
+        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
+            departingFrom: "",
+            travelingTo: "TFS",
+            departureDate: "2022/11/05",
+            duration: 7
+        );
+        var result= holidaySearch.ReturnHotelPriceByAscendingOrder();
+        
+        result.First().HotelPricePerNight.Should().BeLessThan(result.Last().HotelPricePerNight);
+    }
 
     [Test]
     public void HolidaySearch_Should_Return_All_Available_Flights_and_Hotels_From_Man_To_AGP()
