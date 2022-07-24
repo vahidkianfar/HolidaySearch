@@ -23,10 +23,14 @@ This App contains five main folders:
 
 Unit Tests contains four main folders:
 
-- HolidaySearchTests (HolidaySearchTests and MatchedFlightsAndHotelsTests)
-- FlightsTests (FlightsTests)
+- HolidaySearchTests:
+    1. HolidaySearchTests (Result Method)
+    2. FindMatchFlights Tests
+    3. FindMatchHotels Tests
+    4. TotalPrices Tests
+    5. SortingMethods Tests
+- FlightsTests
 - HotelsTests
-- ParsingToObject (JsonToObjectTests)
 
 
 In this project I created a searching method to find the cheapest available flight and hotel.
