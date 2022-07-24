@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿
+using FluentAssertions;
+using HolidaySearch.SearchModels;
+
 namespace HolidayTests.HolidaySearchTests;
 
 public class HolidaySearchTests
@@ -6,6 +9,20 @@ public class HolidaySearchTests
     [SetUp]
     public void Setup()
     {
+    }
+    
+    [Test]
+    public void ReturnFlightPriceByAscendingOrder_Should_Sort_and_Return_Matched_Flights()
+    {
+        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
+            departingFrom: "LGW",
+            travelingTo: "AGP",
+            departureDate: "2023/07/01",
+            duration: 7
+        );
+        var result= holidaySearch.ReturnFlightPriceByAscendingOrder();
+        
+        result.First().FlightPrice.Should().BeLessThan(result.Last().FlightPrice);
     }
 
     [Test]
@@ -32,6 +49,7 @@ public class HolidaySearchTests
         holidaySearch.Result().HotelsList.Count.Should().Be(1);
         
     }
+    
     
     [Test]
     public void HolidaySearch_Should_Return_All_Available_Flights_and_Hotels_From_LGW_To_AGP()
@@ -127,6 +145,28 @@ public class HolidaySearchTests
     {
         var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
             departingFrom: "Any Airport",
+            travelingTo: "LPA",
+            departureDate: "2022/11/10",
+            duration: 14
+        );
+        
+        var expectedFlightId = 7;
+        var expectedHotelId = 6;
+        decimal expectedTotalPrice = 1175;
+        
+        var resultFlightId = holidaySearch.Result().FlightsList.First().FlightId;
+        var resultHotelId = holidaySearch.Result().HotelsList.First().HotelId;
+        var resultTotalPrice = holidaySearch.Result().ListOfTotalPrices.First();
+        
+        resultFlightId.Should().Be(expectedFlightId);
+        resultHotelId.Should().Be(expectedHotelId);
+        resultTotalPrice.Should().Be(expectedTotalPrice);
+    }
+    [Test]
+    public void HolidaySearch_Should_Return_Cheapest_Flights_and_Hotels_From_Empty_DepartingFrom_To_LPA()
+    {
+        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
+            departingFrom: "", //Equals to "Any Airport"
             travelingTo: "LPA",
             departureDate: "2022/11/10",
             duration: 14
@@ -322,7 +362,8 @@ public class HolidaySearchTests
         );
         holidaySearch.Result().HotelsList.Count.Should().Be(0);
     }
-
-
-
+    
+    
+    
+    
 }
