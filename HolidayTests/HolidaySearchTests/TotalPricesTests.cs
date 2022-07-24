@@ -75,7 +75,7 @@ public class TotalPricesTests
         result.First().Should().Be(expectedTotalPrice);
     }
     [Test]
-    public void CalculateTotalPrice_Should_Be_Only_FlightPrice_For_Available_Flights_But_NotAvailable_Hotels()
+    public void CalculateTotalPrice_Should_Return_Only_FlightPrice_For_Available_Flights_But_NotAvailable_Hotels()
     {
         var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
             departingFrom: "MAN",
@@ -85,6 +85,22 @@ public class TotalPricesTests
         );
         
         var expectedTotalPrice = holidaySearch.ReturnFlightPriceByAscendingOrder().First().FlightPrice;
+        
+        var result= holidaySearch.CalculateListOfTotalPrice();
+        
+        result.First().Should().Be(expectedTotalPrice);
+    }
+    [Test]
+    public void CalculateTotalPrice_Should_Return_Only_Hotel_TotalPrice_For_NotAvailable_Flights_But_Available_Hotels()
+    {
+        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
+            departingFrom: "MAN",
+            travelingTo: "LPA",
+            departureDate: "2022/10/10",
+            duration: 7
+        );
+        
+        var expectedTotalPrice = holidaySearch.ReturnHotelPriceByAscendingOrder().First().HotelPricePerNight * 7;
         
         var result= holidaySearch.CalculateListOfTotalPrice();
         
