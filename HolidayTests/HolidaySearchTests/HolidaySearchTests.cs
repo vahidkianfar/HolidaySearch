@@ -12,56 +12,10 @@ public class HolidaySearchTests
     }
     
     [Test]
-    public void ReturnFlightPriceByAscendingOrder_Should_Sort_and_Return_Matched_Flights()
-    {
-        //Arrange
-        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
-            departingFrom: "LGW",
-            travelingTo: "AGP",
-            departureDate: "2023/07/01",
-            duration: 7
-        );
-        
-        //Act
-        var result= holidaySearch.ReturnFlightPriceByAscendingOrder();
-        
-        //Assert
-        result.First().FlightPrice.Should().BeLessThan(result.Last().FlightPrice);
-    }
-    [Test]
-    public void ReturnHotelPriceByAscendingOrder_Should_Sort_and_Return_Matched_Hotels()
-    {
-        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
-            departingFrom: "",
-            travelingTo: "TFS",
-            departureDate: "2022/11/05",
-            duration: 7
-        );
-        
-        var result= holidaySearch.ReturnHotelPriceByAscendingOrder();
-        
-        result.First().HotelPricePerNight.Should().BeLessThan(result.Last().HotelPricePerNight);
-    }
-    
-    [Test]
-    public void CalculateTotalPrice_Should_Sort_and_Return_Total_Price_Of_Flights_Hotels()
-    {
-        var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
-            departingFrom: "",
-            travelingTo: "AGP",
-            departureDate: "2023/07/01",
-            duration: 7
-        );
-        
-        var result= holidaySearch.CalculateListOfTotalPrice();
-        
-        result.First().Should().BeLessThan(result.Last());
-    }
-
-    [Test]
     public void HolidaySearch_Should_Return_All_Available_Flights_and_Hotels_From_Man_To_AGP()
     {
-        //Arrange
+        //---Arrange
+        
         var holidaySearch = new HolidaySearch.SearchModels.HolidaySearch(
         departingFrom: "MAN",
         travelingTo: "AGP",
@@ -72,11 +26,13 @@ public class HolidaySearchTests
         var expectedFlightId = 2;
         var expectedHotelId = 9;
         
-        //Act
+        //---Act
+        
         var resultFlightId = holidaySearch.Result().FlightsList.First().FlightId;
         var resultHotelId = holidaySearch.Result().HotelsList.First().HotelId;
         
-        //Assert
+        //---Assert
+        
         resultFlightId.Should().Be(expectedFlightId);
         resultHotelId.Should().Be(expectedHotelId);
         
@@ -396,8 +352,4 @@ public class HolidaySearchTests
         );
         holidaySearch.Result().HotelsList.Count.Should().Be(0);
     }
-    
-    
-    
-    
 }
