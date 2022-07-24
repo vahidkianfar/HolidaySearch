@@ -46,7 +46,7 @@ public class MatchedFlightsAndHotels
     private static List<Flights> ReturnAnyAvailableLondonAirport(List<Flights> flights , string destinationCity, string departureDate)
     {
         var listOfLondonAirport = GetLondonAirports();
-        var match = flights!.Where(flight =>
+        var match = flights.Where(flight =>
                 listOfLondonAirport.Contains(flight.OriginCity!)
                 && flight.DestinationCity == destinationCity &&
                 flight.DepartureDate == DateTime.Parse(departureDate)).ToList();
