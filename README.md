@@ -42,8 +42,8 @@ In this project I created a searching method to find the cheapest available flig
 
 [Back to top](#holidaysearch)
 
-I used **TDD** for this project, for every method I wrote the tests first, after getting the green light I refactored the method
-I have two different Json files which have the details about flights and hotels
+I used **TDD** for this project, for every method I wrote the tests first, after getting the green light I refactored the method, 
+I have two different Json files which have the details about flights and hotels, 
 at first I needed to create two different objects to store all flights and hotels details
 and the I wrote different method for various criteria and used query to retrieve the data.
 
