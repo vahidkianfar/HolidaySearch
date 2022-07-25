@@ -1,4 +1,4 @@
-# HolidaySearch 🐾✈️🧳
+# HolidaySearch 🐾🧳✈️
 
  **Table of contents:**
 
@@ -35,14 +35,18 @@
 - HotelsTests
 
 
-In this project I created a searching method to find the cheapest available flight and hotel.
+In this project I created a searching method to find the cheapest available flight and hotel based on availability of airport, departure date, arrival date and etc.
 
 
 ## Description
 
 [Back to top](#holidaysearch)
 
-I have two different Json files which stored the details about flights and hotels:
+I used **TDD** for this project, for every method I wrote the tests first, after getting the green light I refactored the method
+I have two different Json files which have the details about flights and hotels
+at first I needed to create two different objects to store all flights and hotels details
+and the I wrote different method for various criteria and used query to retrieve the data.
+
 
 1- A record of **Flights.json** [*"id", "airline", "from", "to", "price", "departure_date"*]
 
@@ -70,7 +74,7 @@ I have two different Json files which stored the details about flights and hotel
 1. Customer can enter the *departure city*, *destination city*, *departure date* and *duration*
 2. Customer will see the *FlightId*, *HotelId* and *TotalPrice*
 
-### Example 1:
+#### Example 1:
 ##### Input
 
  * Departing from: Manchester Airport (MAN)
@@ -82,7 +86,7 @@ I have two different Json files which stored the details about flights and hotel
  * Flight 2 and Hotel 9
  
  
-### Example 2:
+#### Example 2:
 ##### Input
 
  * Departing from: Any London Airport
@@ -101,8 +105,8 @@ I have two different Json files which stored the details about flights and hotel
 ## Features and Future Thoughts
 [Back to top](#holidaysearch)
 
-1. I wrote seperate methods for finding list of matched flights and list of matched hotels.
-2. I use List<Flights> and List<Hotels> so I can easily retrieve data by query (LINQ method).
+1. I wrote seperate methods for finding list of matched flights and list of matched hotels and store it into new Object of *Matched Flights and Hotels*.
+2. I use List of Flights and List of Hotels so I can easily retrieve data by query (LINQ method).
 3. The client would be able to find only flights or hotels.
 4. The **Result** method on **HolidaySearch** class will create a new object of *MatchedFlightsAndHotels* which stores a list of available flights and hotels.
 5. The **Result** method on **HolidaySearch** class will return a list of matched flight and hotel together and a list of total prices.
