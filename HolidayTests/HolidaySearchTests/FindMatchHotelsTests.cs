@@ -82,4 +82,32 @@ public class FindMatchHotelsTests
         result.Count.Should().Be(1);
         result.First().HotelId.Should().Be(12);
     }
+    
+    
+    [Test]
+    public void FindMatchHotels_Should_Return_ZERO_Hotels_in_MAN()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchHotels("MAN", 14, "2023/07/01");
+        
+        result.Should().BeOfType<List<Hotels>>();
+        result.Count.Should().Be(0);
+    }
+    
+    [Test]
+    public void FindMatchHotels_Should_Return_ZERO_Hotels_in_AGP_For_Out_Of_Scope_Duration()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchHotels("AGP", 24, "2023/07/01");
+        
+        result.Should().BeOfType<List<Hotels>>();
+        result.Count.Should().Be(0);
+    }
+    
+    [Test]
+    public void FindMatchHotels_Should_Return_ZERO_Hotels_in_AGP_For_Out_Of_Scope_Date()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchHotels("AGP", 14, "2025/07/01");
+        
+        result.Should().BeOfType<List<Hotels>>();
+        result.Count.Should().Be(0);
+    }
 }

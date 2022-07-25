@@ -73,4 +73,37 @@ public class FindMatchFlightsTests
         result[0].FlightId.Should().Be(4);
         result[1].FlightId.Should().Be(6);
     }
+    
+    [Test]
+    public void FindMatchFlights_Should_Return_ZERO_Matched_Flights_To_MAN()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchFlights("", "MAN", "2023/06/15");
+        
+        result.Should().BeOfType<List<Flights>>();
+        
+        result.Count.Should().Be(0);
+        
+    }
+    
+    [Test]
+    public void FindMatchFlights_Should_Return_ZERO_Matched_Flights_To_AGP_For_Out_Of_Scope_Date()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchFlights("", "AGP", "2025/06/15");
+        
+        result.Should().BeOfType<List<Flights>>();
+        
+        result.Count.Should().Be(0);
+        
+    }
+    
+    [Test]
+    public void FindMatchFlights_Should_Return_ZERO_Matched_Flights_From_Undefined_DepartureCity_To_AGP()
+    {
+        var result = MatchedFlightsAndHotels.FindMatchFlights("ABC", "AGP", "2023/06/15");
+        
+        result.Should().BeOfType<List<Flights>>();
+        
+        result.Count.Should().Be(0);
+        
+    }
 }
